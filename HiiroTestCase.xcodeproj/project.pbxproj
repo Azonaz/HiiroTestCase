@@ -11,6 +11,13 @@
 		84828F282BC6C4A000C65E28 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84828F272BC6C4A000C65E28 /* ContentView.swift */; };
 		84828F2A2BC6C4A200C65E28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84828F292BC6C4A200C65E28 /* Assets.xcassets */; };
 		84828F2D2BC6C4A200C65E28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84828F2C2BC6C4A200C65E28 /* Preview Assets.xcassets */; };
+		84F4B5D92BC7DDBC00588A08 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5D82BC7DDBC00588A08 /* Fonts.swift */; };
+		84F4B5E12BC7E39300588A08 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5E02BC7E39300588A08 /* DateFormatter.swift */; };
+		84F4B5E62BC7FCA000588A08 /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5E52BC7FCA000588A08 /* TrainingViewModel.swift */; };
+		84F4B5E82BC7FEC100588A08 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5E72BC7FEC100588A08 /* Training.swift */; };
+		84F4B5EA2BC8025F00588A08 /* TrainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5E92BC8025F00588A08 /* TrainView.swift */; };
+		84F4B5ED2BC80F6200588A08 /* SharpGrotesk-Book15.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84F4B5EB2BC80F6200588A08 /* SharpGrotesk-Book15.otf */; };
+		84F4B5EE2BC80F6200588A08 /* SharpGrotesk-Medium15.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84F4B5EC2BC80F6200588A08 /* SharpGrotesk-Medium15.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +26,13 @@
 		84828F272BC6C4A000C65E28 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		84828F292BC6C4A200C65E28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84828F2C2BC6C4A200C65E28 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		84F4B5D82BC7DDBC00588A08 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		84F4B5E02BC7E39300588A08 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		84F4B5E52BC7FCA000588A08 /* TrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
+		84F4B5E72BC7FEC100588A08 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
+		84F4B5E92BC8025F00588A08 /* TrainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainView.swift; sourceTree = "<group>"; };
+		84F4B5EB2BC80F6200588A08 /* SharpGrotesk-Book15.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SharpGrotesk-Book15.otf"; sourceTree = "<group>"; };
+		84F4B5EC2BC80F6200588A08 /* SharpGrotesk-Medium15.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SharpGrotesk-Medium15.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +66,11 @@
 			isa = PBXGroup;
 			children = (
 				84828F252BC6C4A000C65E28 /* HiiroTestCaseApp.swift */,
-				84828F272BC6C4A000C65E28 /* ContentView.swift */,
-				84828F292BC6C4A200C65E28 /* Assets.xcassets */,
+				84F4B5E22BC7FC0D00588A08 /* Model */,
+				84F4B5E32BC7FC5000588A08 /* View */,
+				84F4B5E42BC7FC6B00588A08 /* ViewModel */,
+				84F4B5DA2BC7E22A00588A08 /* Helpers */,
+				84F4B5DB2BC7E23A00588A08 /* Design */,
 				84828F2B2BC6C4A200C65E28 /* Preview Content */,
 			);
 			path = HiiroTestCase;
@@ -65,6 +82,50 @@
 				84828F2C2BC6C4A200C65E28 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		84F4B5DA2BC7E22A00588A08 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				84F4B5D82BC7DDBC00588A08 /* Fonts.swift */,
+				84F4B5E02BC7E39300588A08 /* DateFormatter.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		84F4B5DB2BC7E23A00588A08 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				84F4B5EB2BC80F6200588A08 /* SharpGrotesk-Book15.otf */,
+				84F4B5EC2BC80F6200588A08 /* SharpGrotesk-Medium15.otf */,
+				84828F292BC6C4A200C65E28 /* Assets.xcassets */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		84F4B5E22BC7FC0D00588A08 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84F4B5E72BC7FEC100588A08 /* Training.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84F4B5E32BC7FC5000588A08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84828F272BC6C4A000C65E28 /* ContentView.swift */,
+				84F4B5E92BC8025F00588A08 /* TrainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84F4B5E42BC7FC6B00588A08 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84F4B5E52BC7FCA000588A08 /* TrainingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +187,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				84828F2D2BC6C4A200C65E28 /* Preview Assets.xcassets in Resources */,
+				84F4B5EE2BC80F6200588A08 /* SharpGrotesk-Medium15.otf in Resources */,
+				84F4B5ED2BC80F6200588A08 /* SharpGrotesk-Book15.otf in Resources */,
 				84828F2A2BC6C4A200C65E28 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +200,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F4B5EA2BC8025F00588A08 /* TrainView.swift in Sources */,
+				84F4B5E62BC7FCA000588A08 /* TrainingViewModel.swift in Sources */,
+				84F4B5E82BC7FEC100588A08 /* Training.swift in Sources */,
+				84F4B5E12BC7E39300588A08 /* DateFormatter.swift in Sources */,
 				84828F282BC6C4A000C65E28 /* ContentView.swift in Sources */,
+				84F4B5D92BC7DDBC00588A08 /* Fonts.swift in Sources */,
 				84828F262BC6C4A000C65E28 /* HiiroTestCaseApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
