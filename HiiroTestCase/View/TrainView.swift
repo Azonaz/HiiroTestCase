@@ -6,14 +6,13 @@ struct TrainView: View {
     
     var body: some View {
         let imageHeight: CGFloat = 48
-        let dateInfo = viewModel.formatDate(training.date)
+        let trainingDateInfo = viewModel.formatDate(training.date)
         
         HStack (spacing: 16) {
             Image(training.imageName)
                 .resizable()
                 .scaledToFit()
                 .frame(width: imageHeight, height: imageHeight)
-                .cornerRadius(imageHeight/2)
             
             VStack (alignment: .leading, spacing: 8) {
                 Text(training.name)
@@ -22,18 +21,18 @@ struct TrainView: View {
                     Text(training.info)
                     Text(training.description)
                 }
-                .opacity(0.4)
                 .font(UIFont.book14)
+                .opacity(0.4)
             }
             
             Spacer()
             
             VStack (alignment: .center, spacing: 8) {
-                Text(dateInfo.dayOfWeek)
+                Text(trainingDateInfo.dayOfWeek)
                     .font(UIFont.book11)
                     .opacity(0.6)
                     .padding(.bottom, 2)
-                Text(dateInfo.dayOfMonth)
+                Text(trainingDateInfo.dayOfMonth)
                     .font(UIFont.book14)
             }
         }
@@ -43,7 +42,7 @@ struct TrainView: View {
 }
 
 #Preview {
-    TrainView(training: Training(name: "Intervals", imageName: "intervals", info: "8km", description: "200/400 rest", date: DateFormatter().date(from: "08.04.2024") ?? Date()))
+    TrainView(training: Training(name: "Intervals", imageName: "intervals", info: "8km", description: "200/400 rest", date: DateFormatter.dayFormatter.date(from: "08.04.2024") ?? Date()))
         .padding()
         .environmentObject(TrainingViewModel())
 }

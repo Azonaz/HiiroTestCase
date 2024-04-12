@@ -5,17 +5,12 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var viewModel = TrainingViewModel()
     
-    var currentMonthAndYear: String {
-        let formatter = DateFormatter.currentMonthAndYearFormatter()
-        return formatter.string(from: Date())
-    }
-    
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .leading) {
-                Text(currentMonthAndYear)
+                Text(viewModel.currentMonthAndYear)
                     .foregroundColor(.white)
                     .font(UIFont.medium16)
                     .padding(.leading, 24)
@@ -35,7 +30,7 @@ struct ContentView: View {
                     .padding(.leading, 24)
                     .padding([.top, .bottom], 16)
                 
-                List(viewModel.trainings) { training in
+                List(viewModel.filteredTrainings) { training in
                     TrainView(training: training)
                         .listRowBackground(Color.black)
                         .padding(.bottom, 20)
@@ -45,6 +40,14 @@ struct ContentView: View {
             }
             .background(Color.black)
             .environmentObject(viewModel)
+            .gesture(DragGesture().onEnded{ value in
+                if value.translation.width > 50 {
+                    viewModel.goToPreviousWeek()
+                } else if value.translation.width < -50 {
+                    viewModel.goToNextWeek()
+                }
+            }
+            )
         }
     }
 }
@@ -56,9 +59,10 @@ struct DateRectangleView: View {
     
     var body: some View {
         let dateInfo = viewModel.formatDate(date)
+        let checkTraining = viewModel.checkTraining(on: date)
         
         return RoundedRectangle(cornerRadius: 100)
-            .foregroundColor(.grayUniv)
+            .foregroundColor(checkTraining ? .purpleUniv : .grayUniv)
             .frame(height: 72)
             .overlay(
                 VStack {
@@ -77,7 +81,11 @@ struct DateRectangleView: View {
                     .padding(-3)
             )
             .onTapGesture {
-                selectedDate = date
+                if selectedDate == date {
+                    selectedDate = nil
+                } else {
+                    selectedDate = date
+                }
             }
     }
 }
