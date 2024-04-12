@@ -9,15 +9,18 @@ struct TrainView: View {
         let trainingDateInfo = viewModel.formatDate(training.date)
         
         HStack (spacing: 16) {
-            Image(training.imageName)
+            // иконка тренировки
+            Image(training.iconName)
                 .resizable()
                 .scaledToFit()
                 .frame(width: imageHeight, height: imageHeight)
             
             VStack (alignment: .leading, spacing: 8) {
-                Text(training.name)
+                // тип тренировки
+                Text(training.type)
                     .font(UIFont.book14)
                 HStack (spacing: 16) {
+                    // информация о тренировке
                     Text(training.info)
                     Text(training.description)
                 }
@@ -28,6 +31,7 @@ struct TrainView: View {
             Spacer()
             
             VStack (alignment: .center, spacing: 8) {
+                // день недели и число
                 Text(trainingDateInfo.dayOfWeek)
                     .font(UIFont.book11)
                     .opacity(0.6)
@@ -42,7 +46,7 @@ struct TrainView: View {
 }
 
 #Preview {
-    TrainView(training: Training(name: "Intervals", imageName: "intervals", info: "8km", description: "200/400 rest", date: DateFormatter.dayFormatter.date(from: "08.04.2024") ?? Date()))
+    TrainView(training: Training(type: "Intervals", iconName: "intervals", info: "8km", description: "200/400 rest", date: DateFormatter.dayFormatter.date(from: "08.04.2024") ?? Date()))
         .padding()
         .environmentObject(TrainingViewModel())
 }

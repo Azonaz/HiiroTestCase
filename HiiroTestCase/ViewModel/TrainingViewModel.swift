@@ -6,15 +6,19 @@ final class TrainingViewModel: ObservableObject {
     @Published var dates: [Date] = []
     @Published var selectedDate: Date?
     
+    // получаем текущий месяц и год для показа во вью
     var currentMonthAndYear: String {
         guard let firstDate = dates.first else { return "" }
         return DateFormatter.monthYearFormatter.string(from: firstDate)
     }
     
+    // фильтруем по дате
     var filteredTrainings: [Training] {
+        // выбрана дата в календаре
         if let selectedDate = selectedDate {
             return trainings.filter { Calendar.current.isDate($0.date, inSameDayAs: selectedDate) }
         } else {
+            // все, начиная с даты показываемой недели
             guard let startDate = dates.first else { return [] }
             return trainings.filter { training in
                 let trainingDate = Calendar.current.startOfDay(for: training.date)
@@ -30,34 +34,38 @@ final class TrainingViewModel: ObservableObject {
     }()
     
     init() {
+        // создаем моковые объекты типа Training
         self.trainings = [
-            Training(name: "Easy run", imageName: "easyRun", info: "10km", description: "HR zone 2", date: dateFormatter.date(from: "01.04.2024") ?? Date()),
-            Training(name: "Tempo run", imageName: "tempoRun", info: "6km", description: "HR zone 3-4", date: dateFormatter.date(from: "03.04.2024") ?? Date()),
-            Training(name: "Longrun", imageName: "longRun", info: "17km", description: "65%", date: dateFormatter.date(from: "05.04.2024") ?? Date()),
-            Training(name: "Strength training", imageName: "strength", info: "1 hour", description: "dumbbells, free weight", date: dateFormatter.date(from: "06.04.2024") ?? Date()),
-            Training(name: "Intervals", imageName: "intervals", info: "8km", description: "200/400 rest", date: dateFormatter.date(from: "08.04.2024") ?? Date()),
-            Training(name: "Easy run", imageName: "easyRun", info: "10km", description: "HR zone 2", date: dateFormatter.date(from: "10.04.2024") ?? Date()),
-            Training(name: "Tempo run", imageName: "tempoRun", info: "6km", description: "HR zone 3-4", date: dateFormatter.date(from: "12.04.2024") ?? Date()),
-            Training(name: "Longrun", imageName: "longRun", info: "17km", description: "65%", date: dateFormatter.date(from: "13.04.2024") ?? Date()),
-            Training(name: "Strength training", imageName: "strength", info: "1 hour", description: "dumbbells, free weight", date: dateFormatter.date(from: "15.04.2024") ?? Date()),
-            Training(name: "Intervals", imageName: "intervals", info: "8km", description: "200/400 rest", date: dateFormatter.date(from: "17.04.2024") ?? Date()),
-            Training(name: "Easy run", imageName: "easyRun", info: "10km", description: "HR zone 2", date: dateFormatter.date(from: "19.04.2024") ?? Date()),
-            Training(name: "Tempo run", imageName: "tempoRun", info: "6km", description: "HR zone 3-4", date: dateFormatter.date(from: "21.04.2024") ?? Date()),
-            Training(name: "Longrun", imageName: "longRun", info: "17km", description: "65%", date: dateFormatter.date(from: "23.04.2024") ?? Date()),
-            Training(name: "Strength training", imageName: "strength", info: "1 hour", description: "dumbbells, free weight", date: dateFormatter.date(from: "25.04.2024") ?? Date()),
-            Training(name: "Intervals", imageName: "intervals", info: "8km", description: "200/400 rest", date: dateFormatter.date(from: "26.04.2024") ?? Date()),
-            Training(name: "Tempo run", imageName: "tempoRun", info: "6km", description: "HR zone 3-4", date: dateFormatter.date(from: "28.04.2024") ?? Date()),
-            Training(name: "Longrun", imageName: "longRun", info: "17km", description: "65%", date: dateFormatter.date(from: "30.04.2024") ?? Date())
+            Training(type: "Easy run", iconName: "easyRun", info: "10km", description: "HR zone 2", date: dateFormatter.date(from: "01.04.2024") ?? Date()),
+            Training(type: "Tempo run", iconName: "tempoRun", info: "6km", description: "HR zone 3-4", date: dateFormatter.date(from: "03.04.2024") ?? Date()),
+            Training(type: "Longrun", iconName: "longRun", info: "17km", description: "65%", date: dateFormatter.date(from: "05.04.2024") ?? Date()),
+            Training(type: "Strength training", iconName: "strength", info: "1 hour", description: "dumbbells, free weight", date: dateFormatter.date(from: "06.04.2024") ?? Date()),
+            Training(type: "Intervals", iconName: "intervals", info: "8km", description: "200/400 rest", date: dateFormatter.date(from: "08.04.2024") ?? Date()),
+            Training(type: "Easy run", iconName: "easyRun", info: "10km", description: "HR zone 2", date: dateFormatter.date(from: "10.04.2024") ?? Date()),
+            Training(type: "Tempo run", iconName: "tempoRun", info: "6km", description: "HR zone 3-4", date: dateFormatter.date(from: "12.04.2024") ?? Date()),
+            Training(type: "Longrun", iconName: "longRun", info: "17km", description: "65%", date: dateFormatter.date(from: "13.04.2024") ?? Date()),
+            Training(type: "Strength training", iconName: "strength", info: "1 hour", description: "dumbbells, free weight", date: dateFormatter.date(from: "15.04.2024") ?? Date()),
+            Training(type: "Intervals", iconName: "intervals", info: "8km", description: "200/400 rest", date: dateFormatter.date(from: "17.04.2024") ?? Date()),
+            Training(type: "Easy run", iconName: "easyRun", info: "10km", description: "HR zone 2", date: dateFormatter.date(from: "19.04.2024") ?? Date()),
+            Training(type: "Tempo run", iconName: "tempoRun", info: "6km", description: "HR zone 3-4", date: dateFormatter.date(from: "21.04.2024") ?? Date()),
+            Training(type: "Longrun", iconName: "longRun", info: "17km", description: "65%", date: dateFormatter.date(from: "23.04.2024") ?? Date()),
+            Training(type: "Strength training", iconName: "strength", info: "1 hour", description: "dumbbells, free weight", date: dateFormatter.date(from: "25.04.2024") ?? Date()),
+            Training(type: "Intervals", iconName: "intervals", info: "8km", description: "200/400 rest", date: dateFormatter.date(from: "26.04.2024") ?? Date()),
+            Training(type: "Tempo run", iconName: "tempoRun", info: "6km", description: "HR zone 3-4", date: dateFormatter.date(from: "28.04.2024") ?? Date()),
+            Training(type: "Longrun", iconName: "longRun", info: "17km", description: "65%", date: dateFormatter.date(from: "30.04.2024") ?? Date())
         ]
+        // заполняем массив дат на текущую неделю
         self.dates = getCurrentWeekDates() ?? []
     }
     
+    // возврат даты в формате краткого дня недели и числа
     func formatDate(_ date: Date) -> (dayOfWeek: String, dayOfMonth: String) {
         let dayOfWeek = DateFormatter().shortWeekdaySymbols[calendar.component(.weekday, from: date) - 1].uppercased()
         let dayOfMonth = DateFormatter.dayFormatter.string(from: date)
         return (dayOfWeek, dayOfMonth)
     }
     
+    // проверка наличия тренировки на дату
     func checkTraining(on date: Date) -> Bool {
         let startOfDate = calendar.startOfDay(for: date)
         return trainings.contains { training in
@@ -66,23 +74,27 @@ final class TrainingViewModel: ObservableObject {
         }
     }
     
+    // переход к следующей неделе
     func goToNextWeek() {
         guard let nextWeek = calendar.date(byAdding: .weekOfYear, value: 1, to: dates.first ?? Date()) else { return }
         dates = getWeekDates(from: nextWeek)
         selectedDate = nil
     }
     
+    // переход к предыдущей неделе
     func goToPreviousWeek() {
         guard let previousWeek = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: dates.first ?? Date()) else { return }
         dates = getWeekDates(from: previousWeek)
         selectedDate = nil
     }
     
+    // получение дат определенной недели
     private func getWeekDates(from date: Date) -> [Date] {
         guard let weekInterval = calendar.dateInterval(of: .weekOfMonth, for: date) else { return [] }
         return (0..<7).compactMap { calendar.date(byAdding: .day, value: $0, to: weekInterval.start) }
     }
     
+    // получение дат текущей недели
     private func getCurrentWeekDates() -> [Date]? {
         let today = Date()
         return getWeekDates(from: today)

@@ -2,8 +2,8 @@ import Foundation
 
 struct Training: Identifiable, Hashable {
     var id = UUID()
-    var name: String
-    var imageName: String
+    var type: String
+    var iconName: String
     var info: String
     var description: String
     var date: Date
