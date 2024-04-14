@@ -141,6 +141,12 @@ final class TrainingViewModel: ObservableObject {
                     self.draggedDayOffset = Double(self.snappedDayOffset) + Double(swipeOffset)
                     self.snappedDayOffset = Int(self.draggedDayOffset)
                 }
+                // обновление списка тренировок
+                if value.startLocation.x > value.location.x {
+                    self.updateNextWeek()
+                } else {
+                    self.updatePreviousWeek()
+                }
             }
     }
 
@@ -154,6 +160,20 @@ final class TrainingViewModel: ObservableObject {
     private func getCurrentWeekDates() -> [Date]? {
         let today = Date()
         return getWeekDates(from: today)
+    }
+
+    // обновление списка тренировок следующей недели
+    func updateNextWeek() {
+        guard let nextWeek = calendar.date(byAdding: .weekOfYear, value: 1, to: dates.first ?? Date())
+        else { return }
+        dates = getWeekDates(from: nextWeek)
+    }
+
+    // обновление списка тренировок предыдущей недели
+    func updatePreviousWeek() {
+        guard let previousWeek = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: dates.first ?? Date())
+        else { return }
+        dates = getWeekDates(from: previousWeek)
     }
 
     // сдвиг ячейки, чтобы неделя начиналась с пн
