@@ -1,10 +1,12 @@
-import Foundation
+import SwiftUI
 
 final class TrainingViewModel: ObservableObject {
     let calendar = Calendar.current
     @Published var trainings: [Training]
     @Published var dates: [Date] = []
     @Published var selectedDate: Date?
+    let baseDate = Date.now
+    let numberOfDayCells = 21
     
     // получаем текущий месяц и год для показа во вью
     var currentMonthAndYear: String {
@@ -26,6 +28,9 @@ final class TrainingViewModel: ObservableObject {
             }
         }
     }
+    
+    private var snappedDayOffset = 0
+    private var draggedDayOffset = Double.zero
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -60,7 +65,7 @@ final class TrainingViewModel: ObservableObject {
     
     // возврат даты в формате краткого дня недели и числа
     func formatDate(_ date: Date) -> (dayOfWeek: String, dayOfMonth: String) {
-        let dayOfWeek = DateFormatter().shortWeekdaySymbols[calendar.component(.weekday, from: date) - 1].uppercased()
+        let dayOfWeek = dateFormatter.shortWeekdaySymbols[calendar.component(.weekday, from: date) - 1].uppercased()
         let dayOfMonth = DateFormatter.dayFormatter.string(from: date)
         return (dayOfWeek, dayOfMonth)
     }
@@ -68,10 +73,13 @@ final class TrainingViewModel: ObservableObject {
     // проверка наличия тренировки на дату
     func checkTraining(on date: Date) -> Bool {
         let startOfDate = calendar.startOfDay(for: date)
-        return trainings.contains { training in
-            let startOfTrainingDate = calendar.startOfDay(for: training.date)
-            return startOfTrainingDate == startOfDate
-        }
+        return trainings.contains { calendar.startOfDay(for: $0.date) == startOfDate }
+    }
+    
+    // вычисление даты для отображения в ячейке календаря с учетом индекса ячейки и смещения дня
+    func getDateToDisplay(for index: Int, with dayAdjustment: Int) -> Date {
+        let baseDate = self.baseDate
+        return Calendar.current.date(byAdding: .day, value: dayAdjustment, to: baseDate) ?? baseDate
     }
     
     // переход к следующей неделе
@@ -86,6 +94,56 @@ final class TrainingViewModel: ObservableObject {
         guard let previousWeek = Calendar.current.date(byAdding: .weekOfYear, value: -1, to: dates.first ?? Date()) else { return }
         dates = getWeekDates(from: previousWeek)
         selectedDate = nil
+    }
+   
+    // расчет смещения по оси X для каждой ячейки в календаре
+    func xOffsetForIndex(index: Int, cellWidth: CGFloat, gapSize: CGFloat) -> Double {
+        let positionWidth = CGFloat(cellWidth + gapSize)
+        let midIndex = Double(numberOfDayCells / 2)
+        var dIndex = (Double(index) - draggedDayOffset - midIndex).truncatingRemainder(dividingBy: Double(numberOfDayCells))
+        if dIndex < -midIndex {
+            dIndex += Double(numberOfDayCells)
+        } else if dIndex > midIndex {
+            dIndex -= Double(numberOfDayCells)
+        }
+        return dIndex * positionWidth
+    }
+    
+    // смещение дня относительно центральной ячейки
+    func dayAdjustmentForIndex(index: Int) -> Int {
+        let midIndex = numberOfDayCells / 2
+        var dIndex = (index - snappedDayOffset - midIndex) % numberOfDayCells
+        if dIndex < -midIndex {
+            dIndex += numberOfDayCells
+        } else if dIndex > midIndex {
+            dIndex -= numberOfDayCells
+        }
+        return dIndex + snappedDayOffset
+    }
+    
+    // обработка прокрутки влево/вправо для навигации между неделями
+    func dragged(cellWidth: CGFloat, gapSize: CGFloat) -> some Gesture {
+        DragGesture()
+            .onChanged() { value in
+                self.draggedDayOffset = Double(self.snappedDayOffset) - (value.translation.width / (cellWidth + gapSize))
+            }
+            .onEnded { value in
+                if value.startLocation.x > value.location.x {
+                    withAnimation(.easeInOut(duration: 0.15)) {
+                        self.draggedDayOffset = Double(self.snappedDayOffset + 7)
+                        self.snappedDayOffset = Int(self.draggedDayOffset)
+                        self.goToNextWeek()
+                        self.selectedDate = nil
+                    }
+                } else {
+                    withAnimation(.easeInOut(duration: 0.15)) {
+                        self.draggedDayOffset = Double(self.snappedDayOffset - 7)
+                        self.snappedDayOffset = Int(self.draggedDayOffset)
+                        self.goToPreviousWeek()
+                        self.selectedDate = nil
+                    }
+                }
+            }
     }
     
     // получение дат определенной недели

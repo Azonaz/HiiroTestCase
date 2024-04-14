@@ -31,13 +31,13 @@ struct TrainView: View {
             Spacer()
             
             VStack (alignment: .center, spacing: 8) {
-                // день недели и число
+                // число и день недели
+                Text(trainingDateInfo.dayOfMonth)
+                    .font(UIFont.book14)
                 Text(trainingDateInfo.dayOfWeek)
                     .font(UIFont.book11)
                     .opacity(0.6)
                     .padding(.bottom, 2)
-                Text(trainingDateInfo.dayOfMonth)
-                    .font(UIFont.book14)
             }
         }
         .foregroundColor(.white)
