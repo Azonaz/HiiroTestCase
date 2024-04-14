@@ -5,12 +5,11 @@ struct ContentView: View {
     let dayCellHeight: CGFloat = 72
     let gapSize: CGFloat = 8
     @StateObject var viewModel = TrainingViewModel()
-    @State private var selectedDate: Date?
-    
+
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
-            
+
             VStack(alignment: .leading) {
                 // текущие месяц и год
                 Text(viewModel.currentMonthAndYear)
@@ -18,8 +17,8 @@ struct ContentView: View {
                     .font(UIFont.medium16)
                     .padding(.leading, 24)
                     .padding(.top, 80)
-                
-                // прямоугольники с датами на неделю
+
+                // ячейки с датами на неделю
                 GeometryReader { proxy in
                     let halfFullWidth = proxy.size.width / 2
                     ZStack {
@@ -32,15 +31,16 @@ struct ContentView: View {
                     // обработка скролла
                     .gesture(viewModel.dragged(cellWidth: dayCellWidth, gapSize: gapSize))
                 }
-                
+                .frame(height: dayCellHeight)
+
                 // список тренировок
-                Text("Activities")
+                Text(Constants.activities)
                     .foregroundColor(.white)
                     .font(UIFont.medium16)
                     .padding(.leading, 24)
                     .padding(.bottom, 16)
-                    .padding(.top, -190)
-                
+                    .padding(.top, 60)
+
                 List(viewModel.filteredTrainings) { training in
                     TrainView(training: training)
                         .listRowBackground(Color.black)
@@ -48,17 +48,16 @@ struct ContentView: View {
                 }
                 .listStyle(.inset)
                 .scrollContentBackground(.hidden)
-                .padding(.top, -160)
             }
             .background(Color.black)
             .environmentObject(viewModel)
         }
         // обновляем представление при тапе на дату
-        .onChange(of: selectedDate) { newValue in
+        .onChange(of: viewModel.selectedDate) { newValue in
             viewModel.selectedDate = newValue
         }
     }
-    
+
     private func dateView(index: Int, halfFullWidth: CGFloat) -> some View {
         let xOffset = viewModel.xOffsetForIndex(index: index, cellWidth: dayCellWidth, gapSize: gapSize)
         let dayAdjustment = viewModel.dayAdjustmentForIndex(index: index)
@@ -68,7 +67,7 @@ struct ContentView: View {
         return ZStack {
             RoundedRectangle(cornerRadius: 100)
             // выбор цвета прямоугольника в зависимости от наличия тренировки в дату
-                .foregroundColor(checkTraining ? .purpleUniv : .grayUniv)
+                .foregroundColor(checkTraining ? .purpleUniversal : .grayUniversal)
                 .frame(height: 72)
                 .overlay(
                     VStack {
@@ -86,14 +85,16 @@ struct ContentView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 100)
                     // отображение выделения выбранной даты
-                        .stroke(selectedDate == dateToDisplay ? Color.white.opacity(0.4) : .clear, lineWidth: 2)
+                        .stroke(viewModel.selectedDate == dateToDisplay
+                                ? Color.white.opacity(0.4) : .clear, lineWidth: 2)
                         .padding(-3)
                 )
                 .onTapGesture {
-                    if selectedDate == dateToDisplay {
-                        selectedDate = nil
+                    // снятие выделения при повторном клике / выборе другой ячейки
+                    if viewModel.selectedDate == dateToDisplay {
+                        viewModel.selectedDate = nil
                     } else {
-                        selectedDate = dateToDisplay
+                        viewModel.selectedDate = dateToDisplay
                     }
                 }
         }

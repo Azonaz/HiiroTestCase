@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8410D4DA2BCC29730013BFE3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410D4D92BCC29730013BFE3 /* Constants.swift */; };
 		84828F262BC6C4A000C65E28 /* HiiroTestCaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84828F252BC6C4A000C65E28 /* HiiroTestCaseApp.swift */; };
 		84828F282BC6C4A000C65E28 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84828F272BC6C4A000C65E28 /* ContentView.swift */; };
 		84828F2A2BC6C4A200C65E28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84828F292BC6C4A200C65E28 /* Assets.xcassets */; };
 		84828F2D2BC6C4A200C65E28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84828F2C2BC6C4A200C65E28 /* Preview Assets.xcassets */; };
 		84D02C192BC94A320095B3D6 /* HiiroTestCaseUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D02C182BC94A320095B3D6 /* HiiroTestCaseUnitTests.swift */; };
+		84D280B62BCBB65C00BE3B71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84828F272BC6C4A000C65E28 /* ContentView.swift */; };
+		84D280B72BCBB65C00BE3B71 /* TrainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5E92BC8025F00588A08 /* TrainView.swift */; };
+		84D280B82BCBB65C00BE3B71 /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5E52BC7FCA000588A08 /* TrainingViewModel.swift */; };
+		84D280B92BCBB68800BE3B71 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5E72BC7FEC100588A08 /* Training.swift */; };
+		84D280BA2BCBB6BA00BE3B71 /* HiiroTestCaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84828F252BC6C4A000C65E28 /* HiiroTestCaseApp.swift */; };
+		84D280BB2BCBB6BE00BE3B71 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5D82BC7DDBC00588A08 /* Fonts.swift */; };
+		84D280BC2BCBB6C200BE3B71 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5E02BC7E39300588A08 /* DateFormatter.swift */; };
+		84D280BD2BCBB6D200BE3B71 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 84828F292BC6C4A200C65E28 /* Assets.xcassets */; };
 		84F4B5D92BC7DDBC00588A08 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5D82BC7DDBC00588A08 /* Fonts.swift */; };
 		84F4B5E12BC7E39300588A08 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5E02BC7E39300588A08 /* DateFormatter.swift */; };
 		84F4B5E62BC7FCA000588A08 /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4B5E52BC7FCA000588A08 /* TrainingViewModel.swift */; };
@@ -29,9 +38,17 @@
 			remoteGlobalIDString = 84828F212BC6C4A000C65E28;
 			remoteInfo = HiiroTestCase;
 		};
+		84D280B12BCBB42300BE3B71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84828F1A2BC6C4A000C65E28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84828F212BC6C4A000C65E28;
+			remoteInfo = HiiroTestCase;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8410D4D92BCC29730013BFE3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		84828F222BC6C4A000C65E28 /* HiiroTestCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiiroTestCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84828F252BC6C4A000C65E28 /* HiiroTestCaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiiroTestCaseApp.swift; sourceTree = "<group>"; };
 		84828F272BC6C4A000C65E28 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +56,7 @@
 		84828F2C2BC6C4A200C65E28 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		84D02C162BC94A320095B3D6 /* HiiroTestCaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiiroTestCaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D02C182BC94A320095B3D6 /* HiiroTestCaseUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiiroTestCaseUnitTests.swift; sourceTree = "<group>"; };
+		84D280AB2BCBB42300BE3B71 /* HiiroTestCaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiiroTestCaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F4B5D82BC7DDBC00588A08 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		84F4B5E02BC7E39300588A08 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		84F4B5E52BC7FCA000588A08 /* TrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
@@ -63,6 +81,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84D280A82BCBB42300BE3B71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,6 +105,7 @@
 			children = (
 				84828F222BC6C4A000C65E28 /* HiiroTestCase.app */,
 				84D02C162BC94A320095B3D6 /* HiiroTestCaseTests.xctest */,
+				84D280AB2BCBB42300BE3B71 /* HiiroTestCaseUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,6 +143,7 @@
 		84F4B5DA2BC7E22A00588A08 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8410D4D92BCC29730013BFE3 /* Constants.swift */,
 				84F4B5D82BC7DDBC00588A08 /* Fonts.swift */,
 				84F4B5E02BC7E39300588A08 /* DateFormatter.swift */,
 			);
@@ -168,6 +195,7 @@
 				84828F1E2BC6C4A000C65E28 /* Sources */,
 				84828F1F2BC6C4A000C65E28 /* Frameworks */,
 				84828F202BC6C4A000C65E28 /* Resources */,
+				8410D4DC2BCC2B4D0013BFE3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -196,6 +224,24 @@
 			productReference = 84D02C162BC94A320095B3D6 /* HiiroTestCaseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		84D280AA2BCBB42300BE3B71 /* HiiroTestCaseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84D280B32BCBB42300BE3B71 /* Build configuration list for PBXNativeTarget "HiiroTestCaseUITests" */;
+			buildPhases = (
+				84D280A72BCBB42300BE3B71 /* Sources */,
+				84D280A82BCBB42300BE3B71 /* Frameworks */,
+				84D280A92BCBB42300BE3B71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84D280B22BCBB42300BE3B71 /* PBXTargetDependency */,
+			);
+			name = HiiroTestCaseUITests;
+			productName = HiiroTestCaseUITests;
+			productReference = 84D280AB2BCBB42300BE3B71 /* HiiroTestCaseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -210,6 +256,10 @@
 						CreatedOnToolsVersion = 15.3;
 					};
 					84D02C152BC94A320095B3D6 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 84828F212BC6C4A000C65E28;
+					};
+					84D280AA2BCBB42300BE3B71 = {
 						CreatedOnToolsVersion = 15.3;
 						TestTargetID = 84828F212BC6C4A000C65E28;
 					};
@@ -230,6 +280,7 @@
 			targets = (
 				84828F212BC6C4A000C65E28 /* HiiroTestCase */,
 				84D02C152BC94A320095B3D6 /* HiiroTestCaseTests */,
+				84D280AA2BCBB42300BE3B71 /* HiiroTestCaseUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -253,7 +304,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84D280A92BCBB42300BE3B71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8410D4DC2BCC2B4D0013BFE3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84828F1E2BC6C4A000C65E28 /* Sources */ = {
@@ -267,6 +345,7 @@
 				84828F282BC6C4A000C65E28 /* ContentView.swift in Sources */,
 				84F4B5D92BC7DDBC00588A08 /* Fonts.swift in Sources */,
 				84828F262BC6C4A000C65E28 /* HiiroTestCaseApp.swift in Sources */,
+				8410D4DA2BCC29730013BFE3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +357,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84D280A72BCBB42300BE3B71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84D280BD2BCBB6D200BE3B71 /* Assets.xcassets in Sources */,
+				84D280BC2BCBB6C200BE3B71 /* DateFormatter.swift in Sources */,
+				84D280BB2BCBB6BE00BE3B71 /* Fonts.swift in Sources */,
+				84D280BA2BCBB6BA00BE3B71 /* HiiroTestCaseApp.swift in Sources */,
+				84D280B92BCBB68800BE3B71 /* Training.swift in Sources */,
+				84D280B62BCBB65C00BE3B71 /* ContentView.swift in Sources */,
+				84D280B72BCBB65C00BE3B71 /* TrainView.swift in Sources */,
+				84D280B82BCBB65C00BE3B71 /* TrainingViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -285,6 +379,11 @@
 			isa = PBXTargetDependency;
 			target = 84828F212BC6C4A000C65E28 /* HiiroTestCase */;
 			targetProxy = 84D02C1A2BC94A320095B3D6 /* PBXContainerItemProxy */;
+		};
+		84D280B22BCBB42300BE3B71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84828F212BC6C4A000C65E28 /* HiiroTestCase */;
+			targetProxy = 84D280B12BCBB42300BE3B71 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -326,7 +425,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -389,7 +488,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -476,6 +575,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H2L9U6M2SX;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.azonaz.HiiroTestCaseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -494,6 +594,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H2L9U6M2SX;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.azonaz.HiiroTestCaseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -501,6 +602,42 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HiiroTestCase.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HiiroTestCase";
+			};
+			name = Release;
+		};
+		84D280B42BCBB42300BE3B71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H2L9U6M2SX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.azonaz.HiiroTestCaseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HiiroTestCase;
+			};
+			name = Debug;
+		};
+		84D280B52BCBB42300BE3B71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H2L9U6M2SX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.azonaz.HiiroTestCaseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HiiroTestCase;
 			};
 			name = Release;
 		};
@@ -530,6 +667,15 @@
 			buildConfigurations = (
 				84D02C1D2BC94A320095B3D6 /* Debug */,
 				84D02C1E2BC94A320095B3D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84D280B32BCBB42300BE3B71 /* Build configuration list for PBXNativeTarget "HiiroTestCaseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84D280B42BCBB42300BE3B71 /* Debug */,
+				84D280B52BCBB42300BE3B71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
